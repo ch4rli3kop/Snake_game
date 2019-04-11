@@ -1,0 +1,8 @@
+.game{
+    background-color: black;
+    width: 420px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
