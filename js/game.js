@@ -8,15 +8,18 @@ function createSnake(){
     }
 }
 
-function createMandu(x, y){
+function createMandu(){
     context.fillStyle = "#ffffff";
-    context.fillRect(x*pixelSize, y*pixelSize, pixelSize, pixelSize);
+    context.fillRect(mandu.x*pixelSize, mandu.y*pixelSize, pixelSize, pixelSize);
 }
 
 function game(){
     
     context.fillStyle = 'black';
     context.fillRect(0, 0, width, height);
+
+    createSnake();
+    createMandu();
 
     snakeHeadX = (snakeBody[snakeLength - 1].x + directionX)%42;
     snakeHeadY = (snakeBody[snakeLength - 1].y + directionY)%42;
@@ -26,10 +29,11 @@ function game(){
         snakeHeadY+=42;
     snakeBody.push({x:snakeHeadX, y:snakeHeadY});
     snakeBody.shift();
-    console.log(snakeBody);
-    createSnake();
-//    createMandu();
-
+    // console.log(snakeBody);
+    
+    if (snakeHeadX === mandu.x && snakeHeadY === mandu.y){
+        mandu = {x: Math.floor(Math.random() * 41 + 1), y: Math.floor(Math.random() * 41 + 1)};
+    }
 }
 
 function keyPush(evt) {

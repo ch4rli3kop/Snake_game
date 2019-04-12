@@ -7,5 +7,5 @@ var snakeBody = [{x:10, y:10}, {x:10, y:11}, {x:10, y:12}, {x:10, y:13}];
 var snakeLength = 4;
 var directionX = 0;
 var directionY = 1;
-var mandu;
+var mandu = {x:30, y:15};
 var btn = document.getElementById('startBtn');
