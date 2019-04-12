@@ -10,3 +10,4 @@ var directionY = 1;
 var mandu = {x:30, y:15};
 var btn = document.getElementById('startBtn');
 var score = 0;
+var sound = document.getElementById("audio");

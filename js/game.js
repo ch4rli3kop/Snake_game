@@ -35,37 +35,56 @@ function game(){
     else if(snakeHeadY<0)
         snakeHeadY+=42;
     snakeBody.push({x:snakeHeadX, y:snakeHeadY});
-    // console.log(snakeBody);
     
-    if (snakeHeadX === mandu.x && snakeHeadY === mandu.y){ // eat mandu
+    // when snake eat mandu
+    if (snakeHeadX === mandu.x && snakeHeadY === mandu.y){
         mandu = {x: Math.floor(Math.random() * 41 + 1), y: Math.floor(Math.random() * 41 + 1)};
         snakeLength += 1;
         score += 1;
     } else{
         snakeBody.shift();
     }
+
+    // when snake eat itself
+    for(var i=0; i<snakeLength-1; i++){
+        if(snakeHeadX === snakeBody[i].x && snakeHeadY === snakeBody[i].y){
+            sound.play();
+            for(var j=0; j<i; j++){
+                snakeBody.shift();
+                snakeLength-=1;
+            }
+        }
+    }
 }
 
 function keyPush(evt) {
     switch(evt.keyCode){
         case 37:
-            directionX = -1; directionY = 0;
-            console.log("left");
+            if (!(directionX === 1 && directionY === 0)){
+                directionX = -1; directionY = 0;
+                console.log("left");
+            }
             break;
         
         case 38:
-            directionX = 0; directionY = -1;
-            console.log("up");
+            if (!(directionX === 0 && directionY === 1)){
+                directionX = 0; directionY = -1;
+                console.log("up");
+            }
             break;
 
         case 39:
-            directionX = 1; directionY = 0;
-            console.log("right");
+            if (!(directionX === -1 && directionY ===0)){
+                directionX = 1; directionY = 0;
+                console.log("right");
+            }
             break;
         
         case 40:
-            directionX = 0; directionY = 1;
-            console.log("down");
+            if (!(directionX === 0 && directionY === -1)){
+                directionX = 0; directionY = 1;
+                console.log("down");
+            }
             break;  
     }
 }
