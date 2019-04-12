@@ -13,6 +13,12 @@ function createMandu(){
     context.fillRect(mandu.x*pixelSize, mandu.y*pixelSize, pixelSize, pixelSize);
 }
 
+function showScore(){
+    context.fillStyle = "#ced6e0";
+    context.font = 'italic 20px Calibri';
+    context.fillText(`Score : ${score}`, 320, 25);
+}
+
 function game(){
     
     context.fillStyle = 'black';
@@ -20,6 +26,7 @@ function game(){
 
     createSnake();
     createMandu();
+    showScore();
 
     snakeHeadX = (snakeBody[snakeLength - 1].x + directionX)%42;
     snakeHeadY = (snakeBody[snakeLength - 1].y + directionY)%42;
@@ -28,11 +35,14 @@ function game(){
     else if(snakeHeadY<0)
         snakeHeadY+=42;
     snakeBody.push({x:snakeHeadX, y:snakeHeadY});
-    snakeBody.shift();
     // console.log(snakeBody);
     
-    if (snakeHeadX === mandu.x && snakeHeadY === mandu.y){
+    if (snakeHeadX === mandu.x && snakeHeadY === mandu.y){ // eat mandu
         mandu = {x: Math.floor(Math.random() * 41 + 1), y: Math.floor(Math.random() * 41 + 1)};
+        snakeLength += 1;
+        score += 1;
+    } else{
+        snakeBody.shift();
     }
 }
 
