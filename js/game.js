@@ -73,7 +73,7 @@ function keyPush(evt) {
 function startGame(){
     console.log("Start Game!");
     btn.setAttribute('disabled', true);
-    setInterval(game, 3000/15);
+    setInterval(game, 1000/15);
 }
 
 function init(){
