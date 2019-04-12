@@ -23,7 +23,7 @@ function game(){
     context.fillStyle = 'black';
     context.fillRect(0, 0, width, height);
     var xSize = (width/pixelSize);
-    var ySize = (length/pixelSize);
+    var ySize = (height/pixelSize);
     createSnake();
     createMandu();
     showScore();
