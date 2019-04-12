@@ -1,4 +1,3 @@
-
 function createSnake(){
     context.fillStyle = "#7bed9f";
     context.strokeStyle = "#2ed573";
@@ -23,22 +22,24 @@ function game(){
     
     context.fillStyle = 'black';
     context.fillRect(0, 0, width, height);
-
+    var xSize = (width/pixelSize);
+    var ySize = (length/pixelSize);
     createSnake();
     createMandu();
     showScore();
 
-    snakeHeadX = (snakeBody[snakeLength - 1].x + directionX)%42;
-    snakeHeadY = (snakeBody[snakeLength - 1].y + directionY)%42;
+    // calculate snake's head location
+    snakeHeadX = (snakeBody[snakeLength - 1].x + directionX)%xSize;
+    snakeHeadY = (snakeBody[snakeLength - 1].y + directionY)%ySize;
     if(snakeHeadX<0)
-        snakeHeadX+=42;
+        snakeHeadX+=xSize;
     else if(snakeHeadY<0)
-        snakeHeadY+=42;
+        snakeHeadY+=ySize;
     snakeBody.push({x:snakeHeadX, y:snakeHeadY});
     
     // when snake eat mandu
     if (snakeHeadX === mandu.x && snakeHeadY === mandu.y){
-        mandu = {x: Math.floor(Math.random() * 41 + 1), y: Math.floor(Math.random() * 41 + 1)};
+        mandu = {x: Math.floor(Math.random() * (xSize - 1) + 1), y: Math.floor(Math.random() * (ySize - 1) + 1)};
         snakeLength += 1;
         score += 1;
     } else{
@@ -100,6 +101,5 @@ function init(){
     document.addEventListener('keydown', keyPush);
     btn.addEventListener('click', startGame);
 }
-
 
 init();
