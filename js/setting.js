@@ -8,3 +8,4 @@ var snakeLength = 4;
 var directionX = 0;
 var directionY = 1;
 var mandu;
+var btn = document.getElementById('startBtn');

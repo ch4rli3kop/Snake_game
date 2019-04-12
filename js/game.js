@@ -14,14 +14,19 @@ function createMandu(x, y){
 }
 
 function game(){
-    console.log(snakeBody);
+    
     context.fillStyle = 'black';
     context.fillRect(0, 0, width, height);
 
     snakeHeadX = (snakeBody[snakeLength - 1].x + directionX)%42;
     snakeHeadY = (snakeBody[snakeLength - 1].y + directionY)%42;
+    if(snakeHeadX<0)
+        snakeHeadX+=42;
+    else if(snakeHeadY<0)
+        snakeHeadY+=42;
     snakeBody.push({x:snakeHeadX, y:snakeHeadY});
     snakeBody.shift();
+    console.log(snakeBody);
     createSnake();
 //    createMandu();
 
@@ -35,7 +40,7 @@ function keyPush(evt) {
             break;
         
         case 38:
-            directionX = 0; directionY = 1;
+            directionX = 0; directionY = -1;
             console.log("up");
             break;
 
@@ -52,14 +57,15 @@ function keyPush(evt) {
 }
 
 function startGame(){
-    console.log("AAAA");
-    setInterval(game, 3000/6);
+    console.log("Start Game!");
+    btn.setAttribute('disabled', true);
+    setInterval(game, 3000/15);
 }
 
 function init(){
     var btn = document.getElementById('startBtn');
-    btn.addEventListener('click', startGame);
     document.addEventListener('keydown', keyPush);
+    btn.addEventListener('click', startGame);
 }
 
 
