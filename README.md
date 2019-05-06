@@ -1,6 +1,19 @@
 # Snake_game
-Snake game in JavaScript
+#### Snake game in JavaScript
 
-only html, css, javascript
+html, css, javascript
 
-[+] 2019-05-07 add rank system in php, MySQL
+and add the rank system in php, MySQL
+
+
+
+#### Result Image
+
+![snakegame1](./screenshot/snakegame1.jpg)
+![snakegame2](./screenshot/snakegame2.JPG)
+![snakegame3](./screenshot/snakegame3.JPG)
+![snakegame4](./screenshot/snakegame4.JPG)
+![snakegame5](./screenshot/snakegame5.JPG)
+
+
+
