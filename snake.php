@@ -40,7 +40,7 @@ $result = mysqli_query($conn, "SELECT * FROM rank ORDER BY score DESC LIMIT 15")
             <?php
             $i = 1;
             while($row = mysqli_fetch_assoc($result)){
-                echo "<tr><td>".$i."</td><td>".$row['username'].'</td><td>'.$row['date'].'</td><td>'.$row['score']."</td></tr>";
+                echo "<tr><td>".$i."</td><td>".htmlspecialchars($row['username']).'</td><td>'.$row['date'].'</td><td>'.$row['score']."</td></tr>";
                 $i++;
             }
             ?>
@@ -48,9 +48,10 @@ $result = mysqli_query($conn, "SELECT * FROM rank ORDER BY score DESC LIMIT 15")
         </table>
     </div>
     </div>
-    <!-- <audio id="audio" src="https://www.soundjay.com/human/sounds/baby-cooing-09.mp3"></audio> -->
+    <audio id="audio" src="https://www.soundjay.com/human/sounds/baby-cooing-09.mp3"></audio>
     <script src="js/setting.js"></script>
     <script src="js/game.js"></script>
     <script src="js/submitScore.js"></script>
 </body>
 </html>
+<!-- When you score over 1764, you can get the flag! -->
