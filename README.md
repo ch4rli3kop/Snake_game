@@ -1,4 +1,6 @@
 # Snake_game
 Snake game in JavaScript
 
-you can enjoy this game in <https://ch4rli3kop.github.io/Snake_game/snake.html>
+only html, css, javascript
+
+[+] 2019-05-07 add rank system in php, MySQL
