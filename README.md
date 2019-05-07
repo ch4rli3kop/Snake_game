@@ -5,7 +5,9 @@ html, css, javascript
 
 and add the rank system in php, MySQL
 
-
+```shell
+apt install apache2 php php-mysql mysql-server
+```
 
 #### Result Image
 
